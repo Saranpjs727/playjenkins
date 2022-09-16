@@ -26,7 +26,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "https://hub.docker.com/repository/docker/saranyaponnusamy/endgame", registryCredential ) {
+          docker.withRegistry( "https://hub.docker.com/", registryCredential ) {
             dockerImage.push()
           }
         }
