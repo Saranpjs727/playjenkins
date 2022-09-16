@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = "saranyaponnusamy/endgame"
-    registryCredential = 'dockerhub'
+    registryCredential = 'DockerHubCredential'
     dockerImage = ""
   }
 
@@ -26,7 +26,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "", registryCredential ) {
+          docker.withRegistry( "https://hub.docker.com/repository/docker/saranyaponnusamy/endgame", registryCredential ) {
             dockerImage.push()
           }
         }
